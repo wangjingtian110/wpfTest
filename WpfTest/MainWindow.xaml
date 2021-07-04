@@ -17,8 +17,13 @@
             <Label Content="WPF控件使用示例" FontSize="50" ></Label>
         </Grid>
         <Border Grid.Row="1" BorderBrush="#FFC1C1C1" Background="#FF4482C8" BorderThickness="4,6,4,4" Padding="10">
-            <Grid>
-                <Button x:Name="button" Content="TabControl" HorizontalAlignment="Left" Height="32" VerticalAlignment="Center" Width="101" Background="White"/>
+            <Grid Margin="20,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" x:Name="button" Content="DataGrid" HorizontalAlignment="Left" Height="32" VerticalAlignment="Center" Width="101" Background="White" Command="{Binding DataGridOpen}"/>
+                <Button Grid.Column="1" x:Name="button2" Content="TabControl" HorizontalAlignment="Left" Height="32" VerticalAlignment="Center" Width="101" Background="White" Command="{Binding TabControlOpen}"/>
             </Grid>         
         </Border>
 
