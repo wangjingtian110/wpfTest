@@ -21,9 +21,13 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Button Grid.Column="0" x:Name="button" Content="DataGrid" HorizontalAlignment="Left" Height="32" VerticalAlignment="Center" Width="101" Background="White" Command="{Binding DataGridOpen}"/>
-                <Button Grid.Column="1" x:Name="button2" Content="TabControl" HorizontalAlignment="Left" Height="32" VerticalAlignment="Center" Width="101" Background="White" Command="{Binding TabControlOpen}"/>
+                <Button Grid.Column="1" x:Name="button3" Content="DataGridTemplate" HorizontalAlignment="Left" Height="32" VerticalAlignment="Center" Width="101" Background="White" Command="{Binding DataGridTemplateOpen}"/>
+                <Button Grid.Column="2" x:Name="button2" Content="TabControl" HorizontalAlignment="Left" Height="32" VerticalAlignment="Center" Width="101" Background="White" Command="{Binding TabControlOpen}"/>
+                <Button Grid.Column="3" x:Name="button4" Content="TabControlMulty" HorizontalAlignment="Left" Height="32" VerticalAlignment="Center" Width="120" Background="White" Command="{Binding TabMultyOpen}"/>
             </Grid>         
         </Border>
 

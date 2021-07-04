@@ -18,7 +18,11 @@
         <local:EmailConverter x:Key="EmailConverter" />
     </Window.Resources>
     <Grid>
-        <DataGrid Name="DG1" ItemsSource="{Binding}" AutoGenerateColumns="False" >
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <DataGrid Name="DG1" ItemsSource="{Binding CustData, Mode=TwoWay}" AutoGenerateColumns="False" Grid.Row="0"> 
             <DataGrid.Columns>
                 <DataGridTextColumn Header="First Name"  Binding="{Binding FirstName}"/>
                 <DataGridTextColumn Header="Last Name" Binding="{Binding LastName}" />
@@ -28,5 +32,6 @@
                 <DataGridComboBoxColumn Header="Order Status"  SelectedItemBinding="{Binding Status}" ItemsSource="{Binding Source={StaticResource myEnum}}" />
             </DataGrid.Columns>
         </DataGrid>
+        <Button Grid.Row="1" Command="{Binding OnClick}"></Button>
     </Grid>
 </Window>

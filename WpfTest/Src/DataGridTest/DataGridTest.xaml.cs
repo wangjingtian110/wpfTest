@@ -22,16 +22,58 @@ namespace WpfTest
     /// </summary>
     public partial class DataGridTest : Window
     {
+       
+        
         public DataGridTest()
         {
             InitializeComponent();
 
-            //GetData() creates a collection of Customer data from a database
-            ObservableCollection<Customer> custdata = GetData();
-
-            //Bind the DataGrid to the customer data
-            DG1.DataContext = custdata;
+            DataContext = new DataGridTestViewModel(this);
+           
         }
+       
+    }
+
+    public class DataGridTestViewModel : BaseViewModel
+    {
+        private DataGridTest _win;
+
+
+        private ObservableCollection<Customer> _custData;
+        public ObservableCollection<Customer> CustData
+        {
+            get { return _custData; }
+            set
+            {
+                _custData = value;
+                Notify("CustData");
+            }
+        }
+
+        public ICommand OnClick{get;}
+        private void OnClickEvent(object obj)
+        {
+            var email = new Uri("maito:333@abc.com");
+            CustData.Add(new Customer
+            {
+                FirstName = new Random().Next(1,10).ToString(),
+                LastName = "ming",
+                Email = email,
+                IsMember = true,
+                Status = OrderStatus.New
+            });
+        }
+
+
+        public DataGridTestViewModel(DataGridTest win)
+        {
+            _win = win;
+            _custData = GetData();
+
+            OnClick = new DelegateCommand(OnClickEvent);
+        }
+
+
 
         public ObservableCollection<Customer> GetData()
         {
@@ -64,7 +106,11 @@ namespace WpfTest
                 }
             };
         }
+
     }
+
+
+
 
     //Defines the customer object
     public class Customer
@@ -74,6 +120,15 @@ namespace WpfTest
         public Uri Email { get; set; }
         public bool IsMember { get; set; }
         public OrderStatus Status { get; set; }
+
+        public Customer()
+        {
+            FirstName = new Random().Next(0, 10).ToString();
+            LastName = DateTime.Now.ToString();
+            Email = new Uri("maito:333@abc.com");
+            IsMember = new Random().Next() > 0;
+            Status = OrderStatus.New;
+        }
     }
 
     public enum OrderStatus { None, New, Processing, Shipped, Received };

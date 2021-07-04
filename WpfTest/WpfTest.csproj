@@ -64,8 +64,14 @@
     <Compile Include="MainWindowViewModel.cs" />
     <Compile Include="Src\Base\BaseViewModel.cs" />
     <Compile Include="Src\Base\DelegateCommand.cs" />
+    <Compile Include="Src\DataGridTest\DataGridTemplateTest.xaml.cs">
+      <DependentUpon>DataGridTemplateTest.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Src\DataGridTest\DataGridTest.xaml.cs">
       <DependentUpon>DataGridTest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Src\TabControl\TabControlDataGrid.xaml.cs">
+      <DependentUpon>TabControlDataGrid.xaml</DependentUpon>
     </Compile>
     <Compile Include="Src\TabControl\TabControlTest.xaml.cs">
       <DependentUpon>TabControlTest.xaml</DependentUpon>
@@ -82,7 +88,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Src\DataGridTest\DataGridTemplateTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Src\DataGridTest\DataGridTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Src\TabControl\TabControlDataGrid.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
